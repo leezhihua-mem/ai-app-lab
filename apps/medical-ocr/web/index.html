@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>病例OCR小程序 - Web版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+        }
+        
+        .mobile-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 头部 */
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+        
+        .header-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .header-desc {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* 上传区域 */
+        .upload-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .upload-area {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+        }
+        
+        .upload-area:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        .upload-text {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .upload-options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .upload-option {
+            padding: 15px 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-option:hover {
+            background: #e8f5e9;
+        }
+        
+        /* 进度显示 */
+        .progress-section {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: none;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50 0%, #66BB6A 100%);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-text {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 结果显示 */
+        .result-section {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: none;
+        }
+        
+        .result-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2E7D32;
+            margin-bottom: 15px;
+        }
+        
+        .result-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .result-item.alert {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border: 2px solid #f44336;
+        }
+        
+        .item-name {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .item-value {
+            font-size: 24px;
+            color: #333;
+            margin: 10px 0;
+        }
+        
+        .item-status {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+        
+        .item-status.high {
+            background: #f44336;
+        }
+        
+        /* 集成模块 */
+        .integration-section {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .integration-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2E7D32;
+            margin-bottom: 15px;
+        }
+        
+        .integration-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .integration-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        
+        .integration-text {
+            font-size: 14px;
+        }
+        
+        /* 底部导航 */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .nav-item {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .nav-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .nav-item.active {
+            color: #2E7D32;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 480px) {
+            .mobile-container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .upload-area {
+                height: 150px;
+            }
+            
+            .upload-icon {
+                font-size: 36px;
+            }
+            
+            .upload-text {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- 头部 -->
+        <div class="header">
+            <div class="header-title">🩺 病例OCR小程序</div>
+            <div class="header-desc">医疗文档智能识别与结构化工具 + 家康OS深度集成</div>
+        </div>
+        
+        <!-- 上传区域 -->
+        <div class="upload-section">
+            <div class="upload-area" onclick="handleUpload()">
+                <div class="upload-icon">📷</div>
+                <div class="upload-text">拍照上传病例</div>
+            </div>
+            
+            <div class="upload-options">
+                <div class="upload-option" onclick="selectFile()">📁 选择文件</div>
+                <div class="upload-option">📸 拍照上传</div>
+            </div>
+        </div>
+        
+        <!-- 进度显示 -->
+        <div class="progress-section" id="progressSection">
+            <div class="progress-text">识别进度：65% 完成</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">预计剩余：15秒</div>
+        </div>
+        
+        <!-- 结果显示 -->
+        <div class="result-section" id="resultSection">
+            <div class="result-header">化验单 - 北京协和医院 · 2026-04-18</div>
+            
+            <!-- 异常指标 -->
+            <div class="result-item alert">
+                <div class="item-name">血糖</div>
+                <div class="item-value" style="color: #f44336;">7.2 mmol/L</div>
+                <div class="item-status high">偏高 · 红色预警</div>
+                <div style="margin-top: 5px; font-size: 12px; color: #666;">
+                    正常范围：3.9-6.1 mmol/L
+                </div>
+            </div>
+            
+            <!-- 正常指标 -->
+            <div class="result-item">
+                <div class="item-name">血压</div>
+                <div class="item-value">120/80 mmHg</div>
+                <div class="item-status">正常</div>
+            </div>
+            
+            <div class="result-item">
+                <div class="item-name">血脂</div>
+                <div class="item-value">4.5 mmol/L</div>
+                <div class="item-status">正常</div>
+            </div>
+        </div>
+        
+        <!-- 家康OS集成 -->
+        <div class="integration-section">
+            <div class="integration-title">家康OS深度集成</div>
+            
+            <div class="integration-item">
+                <div class="integration-icon">⚠️</div>
+                <div class="integration-text">健康预警模块（25个医学预警模型）</div>
+            </div>
+            
+            <div class="integration-item">
+                <div class="integration-icon">💊</div>
+                <div class="integration-text">用药提醒模块（慢病用药管理）</div>
+            </div>
+            
+            <div class="integration-item">
+                <div class="integration-icon">📅</div>
+                <div class="integration-text">随访管理模块（复诊提醒+随访记录）</div>
+            </div>
+            
+            <div class="integration-item">
+                <div class="integration-icon">👨‍👩‍👧‍👦</div>
+                <div class="integration-text">家庭档案模块（多人健康管理）</div>
+            </div>
+            
+            <div class="integration-item">
+                <div class="integration-icon">🤖</div>
+                <div class="integration-text">AI问诊模块（辅助诊断建议）</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 底部导航 -->
+    <div class="bottom-nav">
+        <div class="nav-item active">
+            <div class="nav-icon">🏠</div>
+            <div>首页</div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon">📤</div>
+            <div>上传</div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon">📁</div>
+            <div>档案</div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon">👤</div>
+            <div>我的</div>
+        </div>
+    </div>
+    
+    <script>
+        // 模拟上传处理
+        function handleUpload() {
+            // 显示进度
+            document.getElementById('progressSection').style.display = 'block';
+            
+            // 模拟进度动画
+            let progress = 0;
+            const progressFill = document.getElementById('progressFill');
+            
+            const interval = setInterval(() => {
+                progress += 10;
+                progressFill.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // 显示结果
+                    document.getElementById('progressSection').style.display = 'none';
+                    document.getElementById('resultSection').style.display = 'block';
+                }
+            }, 500);
+        }
+        
+        // 选择文件
+        function selectFile() {
+            alert('文件选择功能（需要实际API对接）');
+        }
+    </script>
+</body>
+</html>
