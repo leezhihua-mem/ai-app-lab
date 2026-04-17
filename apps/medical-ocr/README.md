@@ -85,7 +85,34 @@
 
 ## 使用方法
 
-### 1. 文件处理
+### 1. Web浏览器访问
+
+```bash
+# 启动Web服务
+cd apps/medical-ocr/web
+python3 -m http.server 8080
+
+# 访问地址
+http://localhost:8080
+```
+
+### 2. 微信小程序部署
+
+```bash
+# 1. 下载微信开发者工具
+https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
+
+# 2. 导入小程序项目
+导入 apps/medical-ocr/miniprogram 目录
+
+# 3. 配置AppID
+修改 project.config.json 中的 appid
+
+# 4. 编译发布
+点击“编译” → “上传” → “提交审核"
+```
+
+### 3. 文件处理（Python后端）
 
 ```python
 from app import MedicalOCRApp
