@@ -1,0 +1,21 @@
+{
+  "lab_name": "🥔 土豆AI应用实验室",
+  "description": "AI App Lab by Potato Agent System",
+  "apps": [
+    {
+      "name": "病例OCR工具",
+      "icon": "🏥",
+      "category": "医疗健康",
+      "description": "病例图片/PDF识别 + 结构化提取",
+      "url": "/apps/medical-record-ocr",
+      "github": "https://github.com/leezhihua-mem/ai-app-lab/tree/main/apps/medical-record-ocr",
+      "status": "开发中",
+      "tech_stack": [
+        "Magika（文件识别）",
+        "MinerU（PDF解析）",
+        "家康OS（医疗知识库）"
+      ],
+      "created_at": "2026-04-17"
+    }
+  ]
+}
