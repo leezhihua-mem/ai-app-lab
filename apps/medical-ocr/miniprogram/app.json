@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/upload/upload",
+    "pages/archive/archive",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarTitleText": "病例OCR小程序",
+    "navigationBarBackgroundColor": "#2E7D32",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f7fa"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#2E7D32",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/upload/upload",
+        "text": "上传",
+        "iconPath": "assets/icons/upload.png",
+        "selectedIconPath": "assets/icons/upload-active.png"
+      },
+      {
+        "pagePath": "pages/archive/archive",
+        "text": "档案",
+        "iconPath": "assets/icons/archive.png",
+        "selectedIconPath": "assets/icons/archive-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/icons/profile.png",
+        "selectedIconPath": "assets/icons/profile-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
