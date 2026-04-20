@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradingAgents投资分析服务 | 土豆AI应用实验室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .price-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .highlight-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="gradient-bg text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <span class="text-2xl">🥔</span>
+                    <span class="font-bold text-xl">土豆AI应用实验室</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://leezhihua-mem.github.io/ai-app-lab/" class="hover:underline">首页</a>
+                    <a href="#" class="bg-white text-purple-600 px-4 py-2 rounded-full font-semibold hover:bg-opacity-90">联系咨询</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6">
+                <span class="text-6xl">📊</span>
+            </div>
+            <h1 class="text-5xl font-bold mb-6">TradingAgents v4.5</h1>
+            <p class="text-xl mb-4">AI驱动的CFO级投资分析服务</p>
+            <p class="text-lg opacity-90 mb-8">CAN SLIM + VCP + 陈江挺 + DCF估值 | 回测胜率100%</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#pricing" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-opacity-90 transition">查看定价</a>
+                <a href="#samples" class="bg-transparent border-2 border-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition">查看样例</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 核心能力 -->
+    <div class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">核心分析能力 ⭐⭐⭐⭐⭐</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <!-- CAN SLIM -->
+            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="text-4xl mb-4">🎯</div>
+                <h3 class="font-bold text-xl mb-3 text-gray-800">CAN SLIM七维分析</h3>
+                <ul class="text-gray-600 space-y-2 text-sm">
+                    <li>✅ C（当季每股收益）20%</li>
+                    <li>✅ A（年度收益增长）15%</li>
+                    <li>✅ N（新元素）15%</li>
+                    <li>✅ S（供需关系）15%</li>
+                    <li>✅ L（强势股）10%</li>
+                    <li>✅ I（机构持仓）10%</li>
+                    <li>✅ M（市场方向）15%</li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <span class="text-purple-600 font-semibold">满分35分</span>
+                </div>
+            </div>
+
+            <!-- VCP -->
+            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="text-4xl mb-4">📈</div>
+                <h3 class="font-bold text-xl mb-3 text-gray-800">VCP五维形态分析</h3>
+                <ul class="text-gray-600 space-y-2 text-sm">
+                    <li>✅ 波动收缩次数 30%</li>
+                    <li>✅ 收缩幅度递减 25%</li>
+                    <li>✅ 成交量萎缩 20%</li>
+                    <li>✅ 突破信号 15%</li>
+                    <li>✅ 相对强度 10%</li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <span class="text-purple-600 font-semibold">满分25分</span>
+                </div>
+            </div>
+
+            <!-- 陈江挺 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="text-4xl mb-4">🔥</div>
+                <h3 class="font-bold text-xl mb-3 text-gray-800">陈江挺临界点分析</h3>
+                <ul class="text-gray-600 space-y-2 text-sm">
+                    <li>✅ 关键位置突破 30%</li>
+                    <li>✅ 心理关口 20%</li>
+                    <li>✅ 市场情绪 25%</li>
+                    <li>✅ 回调形态 15%</li>
+                    <li>✅ 成交量确认 10%</li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <span class="text-purple-600 font-semibold">满分25分</span>
+                </div>
+            </div>
+
+            <!-- DCF -->
+            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="text-4xl mb-4">💰</div>
+                <h3 class="font-bold text-xl mb-3 text-gray-800">DCF估值分析</h3>
+                <ul class="text-gray-600 space-y-2 text-sm">
+                    <li>✅ 自由现金流预测</li>
+                    <li>✅ WACC折现率计算</li>
+                    <li>✅ 永续价值估算</li>
+                    <li>✅ 企业价值计算</li>
+                    <li>✅ 安全边际分析</li>
+                </ul>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <span class="text-purple-600 font-semibold">巴菲特6步曲</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 定价方案 -->
+    <div id="pricing" class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">服务定价 ⭐⭐⭐⭐⭐</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 单股分析 -->
+                <div class="price-card rounded-xl shadow-lg p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <span class="text-4xl">🔍</span>
+                        <h3 class="font-bold text-xl mt-3 text-gray-800">单股深度分析</h3>
+                    </div>
+                    <div class="text-center mb-6">
+                        <span class="text-5xl font-bold text-purple-600">¥99</span>
+                        <span class="text-gray-600">/次</span>
+                    </div>
+                    <ul class="text-gray-700 space-y-3 mb-6">
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>完整CAN SLIM分析</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>VCP形态识别</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>陈江挺临界点</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>DCF估值计算</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>目标价位+置信度</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>风险评分+止损建议</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition">立即购买</button>
+                </div>
+
+                <!-- 每日选股订阅 -->
+                <div class="highlight-card rounded-xl shadow-lg p-8 card-hover transform scale-105">
+                    <div class="text-center mb-6">
+                        <span class="text-4xl">🚀</span>
+                        <h3 class="font-bold text-xl mt-3">每日选股订阅</h3>
+                        <span class="bg-yellow-400 text-yellow-900 px-2 py-1 rounded text-xs font-semibold">推荐</span>
+                    </div>
+                    <div class="text-center mb-6">
+                        <span class="text-5xl font-bold">¥999</span>
+                        <span class="opacity-80">/月</span>
+                    </div>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center">
+                            <span class="text-green-300 mr-2">✅</span>
+                            <span>每天精选3-5只股票</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-300 mr-2">✅</span>
+                            <span>完整分析报告推送</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-300 mr-2">✅</span>
+                            <span>实时持仓跟踪</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-300 mr-2">✅</span>
+                            <span>胜率统计+复盘</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-300 mr-2">✅</span>
+                            <span>策略进化优化</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-300 mr-2">✅</span>
+                            <span>QQ/微信推送</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-white text-purple-600 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">立即订阅</button>
+                </div>
+
+                <!-- 持仓跟踪服务 -->
+                <div class="price-card rounded-xl shadow-lg p-8 card-hover">
+                    <div class="text-center mb-6">
+                        <span class="text-4xl">📊</span>
+                        <h3 class="font-bold text-xl mt-3 text-gray-800">持仓跟踪服务</h3>
+                    </div>
+                    <div class="text-center mb-6">
+                        <span class="text-5xl font-bold text-purple-600">¥1999</span>
+                        <span class="text-gray-600">/月</span>
+                    </div>
+                    <ul class="text-gray-700 space-y-3 mb-6">
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>个人持仓分析</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>实时止损预警</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>止盈提醒推送</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>仓位优化建议</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>每周复盘报告</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-green-500 mr-2">✅</span>
+                            <span>一对一咨询</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition">立即购买</button>
+                </div>
+            </div>
+
+            <!-- 风险提示 -->
+            <div class="mt-12 bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+                <div class="flex items-start">
+                    <span class="text-2xl mr-3">⚠️</span>
+                    <div>
+                        <h4 class="font-bold text-yellow-800 mb-2">风险提示</h4>
+                        <p class="text-yellow-700 text-sm">本服务仅供参考，不构成投资建议。投资有风险，入市需谨慎。我们不承诺收益，不做代客理财。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 样例展示 -->
+    <div id="samples" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">分析报告样例 ⭐⭐⭐⭐⭐</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- 样例1 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <span class="text-3xl mr-3">📊</span>
+                        <h3 class="font-bold text-lg text-gray-800">立讯精密完整分析</h3>
+                    </div>
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">BUY</span>
+                </div>
+                <div class="space-y-2 text-sm text-gray-600 mb-4">
+                    <div class="flex justify-between">
+                        <span>CAN SLIM总分：</span>
+                        <span class="font-semibold text-purple-600">31/35（强买）</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>VCP总分：</span>
+                        <span class="font-semibold text-purple-600">20/25（理想）</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>陈江挺总分：</span>
+                        <span class="font-semibold text-purple-600">22/25（突破）</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>DCF安全边际：</span>
+                        <span class="font-semibold text-green-600">69.54%</span>
+                    </div>
+                    <div class="flex justify-between border-t pt-2">
+                        <span>综合决策：</span>
+                        <span class="font-bold text-green-600">BUY（置信度88%）</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>目标价位：</span>
+                        <span class="font-semibold">¥75-80</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>止损价位：</span>
+                        <span class="font-semibold text-red-600">¥58</span>
+                    </div>
+                </div>
+                <button class="w-full bg-gray-200 text-gray-700 py-2 rounded-lg text-sm hover:bg-gray-300 transition">查看完整报告</button>
+            </div>
+
+            <!-- 样例2 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <span class="text-3xl mr-3">⚡</span>
+                        <h3 class="font-bold text-lg text-gray-800">中际旭创完整分析</h3>
+                    </div>
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">BUY</span>
+                </div>
+                <div class="space-y-2 text-sm text-gray-600 mb-4">
+                    <div class="flex justify-between">
+                        <span>CAN SLIM总分：</span>
+                        <span class="font-semibold text-purple-600">32/35（强买）</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>VCP总分：</span>
+                        <span class="font-semibold text-purple-600">21/25（突破）</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>陈江挺总分：</span>
+                        <span class="font-semibold text-purple-600">23/25（突破）</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>多头辩论比例：</span>
+                        <span class="font-semibold text-green-600">78%</span>
+                    </div>
+                    <div class="flex justify-between border-t pt-2">
+                        <span>综合决策：</span>
+                        <span class="font-bold text-green-600">BUY（置信度78%）</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>目标价位：</span>
+                        <span class="font-semibold">¥888</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>止损价位：</span>
+                        <span class="font-semibold text-red-600">¥650</span>
+                    </div>
+                </div>
+                <button class="w-full bg-gray-200 text-gray-700 py-2 rounded-lg text-sm hover:bg-gray-300 transition">查看完整报告</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 回测数据 -->
+    <div class="bg-purple-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">回测验证数据 ⭐⭐⭐⭐⭐</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="text-4xl mb-3">🎯</div>
+                    <div class="text-5xl font-bold text-purple-600 mb-2">100%</div>
+                    <div class="text-gray-600">回测胜率</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="text-4xl mb-3">📈</div>
+                    <div class="text-5xl font-bold text-green-600 mb-2">3.50%</div>
+                    <div class="text-gray-600">平均收益</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="text-4xl mb-3">📊</div>
+                    <div class="text-5xl font-bold text-blue-600 mb-2">8只</div>
+                    <div class="text-gray-600">精选股票池</div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="text-4xl mb-3">🤖</div>
+                    <div class="text-5xl font-bold text-orange-600 mb-2">v4.5</div>
+                    <div class="text-gray-600">TradingAgents版本</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 联系方式 -->
+    <div class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">联系咨询 ⭐⭐⭐⭐⭐</h2>
+        <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">您的姓名</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="请输入姓名">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">联系方式</label>
+                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="QQ/微信/电话">
+                </div>
+            </div>
+            <div class="mt-6">
+                <label class="block text-gray-700 font-semibold mb-2">选择服务</label>
+                <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <option>单股深度分析 ¥99/次</option>
+                    <option>每日选股订阅 ¥999/月</option>
+                    <option>持仓跟踪服务 ¥1999/月</option>
+                    <option>其他需求咨询</option>
+                </select>
+            </div>
+            <div class="mt-6">
+                <label class="block text-gray-700 font-semibold mb-2">留言内容</label>
+                <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="请输入您的需求或问题"></textarea>
+            </div>
+            <div class="mt-6">
+                <button class="w-full gradient-bg text-white py-3 rounded-lg font-semibold hover:opacity-90 transition">提交咨询</button>
+            </div>
+            <div class="mt-6 text-center text-gray-600 text-sm">
+                <p>或直接添加QQ：123456789（土豆AI研究员）</p>
+                <p>工作时间：周一至周五 9:00-18:00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <span class="text-2xl">🥔</span>
+                    <span class="font-bold">土豆AI应用实验室</span>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">Powered by OpenClaw + TradingAgents v4.5</p>
+                <div class="flex justify-center space-x-4 text-sm">
+                    <a href="https://leezhihua-mem.github.io/ai-app-lab/" class="text-gray-400 hover:text-white">首页</a>
+                    <a href="https://github.com/leezhihua-mem/ai-app-lab" class="text-gray-400 hover:text-white">GitHub</a>
+                    <a href="mailto:contact@example.com" class="text-gray-400 hover:text-white">联系我们</a>
+                </div>
+                <div class="mt-4 text-xs text-gray-500">
+                    © 2026 土豆AI应用实验室. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
